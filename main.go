@@ -33,8 +33,6 @@ func HandleUpdateSJCBankPrices() {
 // }
 
 func main() {
-	timerCheck := time.NewTicker(1 * time.Second)
-	// Ticker cho mỗi 5 phút
 	ticker5Minutes := time.NewTicker(5 * time.Minute)
 	// Ticker cho mỗi 60 phút
 	ticker30Minutes := time.NewTicker(30 * time.Minute)
@@ -44,8 +42,6 @@ func main() {
 
 	for {
 		select {
-		case <-timerCheck.C:
-			fmt.Printf("Time current: %s\n", time.Now().Format("2006-01-02 15:04:05"))
 		case <-ticker5Minutes.C:
 			HandleUpdateSJCBankPrices()
 		case <-ticker30Minutes.C:
